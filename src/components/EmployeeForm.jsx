@@ -4,7 +4,7 @@ import { states } from '../data/states';
 import { useEmployees } from '../store/useEmployees';
 import { FormInput } from './form/FormInput';
 import { FormSelect } from './form/FormSelect';
-import { ModalToast as Toast } from './ModalToast';
+import { ModalToast as Toast } from '@mikael240820/modal-toast-tailwind';
 
 const defaultFormValues = {
   firstName: '',

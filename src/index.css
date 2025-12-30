@@ -7,3 +7,5 @@
   --color-leaf-700: #6e860f;
   --color-leaf-900: #2f3804;
 }
+
+@source "../node_modules/@mikael240820/modal-toast-tailwind/dist/**/*.{js,jsx,mjs}";
