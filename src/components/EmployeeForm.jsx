@@ -54,6 +54,8 @@ export function EmployeeForm() {
             name="firstName"
             value={formValues.firstName}
             onChange={handleChange}
+            minLength={3}
+            helpText="Au moins 3 caractères"
           />
 
           <FormInput
@@ -61,6 +63,8 @@ export function EmployeeForm() {
             name="lastName"
             value={formValues.lastName}
             onChange={handleChange}
+            minLength={3}
+            helpText="Au moins 3 caractères"
           />
 
           <FormInput
@@ -69,6 +73,8 @@ export function EmployeeForm() {
             type="date"
             value={formValues.dateOfBirth}
             onChange={handleChange}
+            max={`${new Date().getFullYear() - 16}-01-01`}
+            helpText="Doit avoir au moins 16 ans"
           />
 
           <FormInput
@@ -80,7 +86,7 @@ export function EmployeeForm() {
           />
         </div>
 
-        <fieldset className="mt-5 rounded-lg border border-leaf-200 p-4">
+        <fieldset className="my-5 rounded-lg border border-leaf-200 p-4">
           <legend>Address</legend>
           <div className="mt-2 grid gap-4 md:grid-cols-2">
             <FormInput
@@ -113,6 +119,8 @@ export function EmployeeForm() {
               name="zipCode"
               value={formValues.zipCode}
               onChange={handleChange}
+              pattern="[0-9]{5}(-[0-9]{4})?"
+              helpText="Format : 12345 ou 12345-6789"
             />
           </div>
         </fieldset>
