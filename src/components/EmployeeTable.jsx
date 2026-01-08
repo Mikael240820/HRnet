@@ -5,12 +5,13 @@ import {
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
-  sortingFns,
   useReactTable,
 } from '@tanstack/react-table';
 import { useEmployees } from '../store/useEmployees';
 import { TablePagination } from './table/TablePagination';
 import { TableToolbar } from './table/TableToolbar';
+import { dateSort } from '../utils/dateSort';
+import { formatDateCell } from '../utils/formatDateCell';
 
 export function EmployeeTable() {
   const employees = useEmployees((state) => state.employees);
@@ -22,9 +23,9 @@ export function EmployeeTable() {
     () => [
       { accessorKey: 'firstName', header: 'First Name', cell: (info) => info.getValue() || '-' },
       { accessorKey: 'lastName', header: 'Last Name', cell: (info) => info.getValue() || '-' },
-      { accessorKey: 'startDate', header: 'Start Date', cell: (info) => (info.getValue() ? new Date(info.getValue()).toLocaleDateString('en-US') : ''), sortingFn: sortingFns.datetime },
+      { accessorKey: 'startDate', header: 'Start Date', cell: (info) => formatDateCell(info), sortingFn: dateSort },
       { accessorKey: 'department', header: 'Department', cell: (info) => info.getValue() || '-' },
-      { accessorKey: 'dateOfBirth', header: 'Date of Birth', cell: (info) => (info.getValue() ? new Date(info.getValue()).toLocaleDateString('en-US') : ''), sortingFn: sortingFns.datetime },
+      { accessorKey: 'dateOfBirth', header: 'Date of Birth', cell: (info) => formatDateCell(info), sortingFn: dateSort },
       { accessorKey: 'street', header: 'Street', cell: (info) => info.getValue() || '-' },
       { accessorKey: 'city', header: 'City', cell: (info) => info.getValue() || '-' },
       { accessorKey: 'state', header: 'State', cell: (info) => info.getValue() || '-' },
