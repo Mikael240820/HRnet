@@ -1,16 +1,33 @@
-# React + Vite
+# HRnet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Internal web application to manage employee records.
 
-Currently, two official plugins are available:
+## Features
+- Add and list employees
+- Notifications: [@mikael240820/modal-toast-tailwind](https://www.npmjs.com/package/@mikael240820/modal-toast-tailwind)
+- Mock data: [`src/data/employees.json`](src/data/employees.json)
+- Simple table with pagination and filters
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Structure
+- `src/components/` UI components (form, table, header)
+- `src/data/` Employee mock and data lists (departments, states, etc.)
+- `src/store/` State management (Zustand)
+- `src/pages/` Main pages (Create, List)
+- `src/utils/` Utility functions
 
-## React Compiler
+## Getting Started
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Build
+```bash
+npm run build
+```
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Unit tests
+Employee creation: [`src/components/__tests__/EmployeeForm.test.jsx`](src/components/__tests__/EmployeeForm.test.jsx):
+```bash
+npm run test
+```
